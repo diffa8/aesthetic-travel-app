@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item Budget</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; background-color: #fcfaf7; color: #4a4039; }
+        .text-custom-gold { color: #b89753 !important; }
+        .btn-custom-gold { background-color: #d4b572; border-color: #d4b572; color: #fff; font-weight: 600; }
+        .btn-custom-gold:hover { background-color: #b89753; border-color: #b89753; color: #fff; }
+        .card-custom { border-radius: 20px; border: 2px solid #f3efe6; background-color: #ffffff; box-shadow: 0 4px 15px rgba(184, 151, 83, 0.05); }
+    </style>
+</head>
+<body>
+    <div class="container py-5" style="max-width: 500px;">
+        <div class="card shadow-sm card-custom p-4">
+            <h5 class="fw-bold mb-3 text-custom-gold">Edit Rincian Budget</h5>
+            <form method="POST">
+                <div class="mb-2">
+                    <label class="form-label small text-muted">Kategori / Tempat Wisata</label>
+                    <input type="text" class="form-control rounded-pill px-3" name="section_title" value="{{ item['section_title'] }}" required style="background-color: #fcfaf7; border-color: #e8e2d5;">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label small text-muted">Nama Item / Tiket</label>
+                    <input type="text" class="form-control rounded-pill px-3" name="name" value="{{ item['name'] }}" required style="background-color: #fcfaf7; border-color: #e8e2d5;">
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label class="form-label small text-muted">Harga Satuan</label>
+                        <input type="number" class="form-control rounded-pill px-3" name="price" value="{{ item['price'] }}" required style="background-color: #fcfaf7; border-color: #e8e2d5;">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label small text-muted">Jumlah (Qty)</label>
+                        <input type="number" class="form-control rounded-pill px-3" name="qty" value="{{ item['qty'] }}" required style="background-color: #fcfaf7; border-color: #e8e2d5;">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-custom-gold w-100 rounded-pill shadow-sm mb-2">Simpan Perubahan</button>
+                <a href="/trip/{{ item['trip_id'] }}" class="btn btn-outline-secondary w-100 rounded-pill shadow-sm">Batal</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
